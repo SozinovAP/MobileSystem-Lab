@@ -9,6 +9,10 @@
     <string name="text_start_value">0</string>
     <string name="text_count">Count:</string>
     <string name="button_next">Next</string>
+    <string name="text_switch">Switch</string>
+    <string name="text_switch_off">off</string>
+    <string name="text_switch_on">on</string>
+    <string name="text_seekBar">Current value: </string>
 
     <string-array name="number">
         <item>1</item>
