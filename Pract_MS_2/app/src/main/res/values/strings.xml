@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Pract_MS_2</string>
+    <string name="string_text">Text</string>
+    <string name="but_next_activity">Next</string>
+    <string name="but_previous_activity">Back</string>
+    <string name="text_anim">anim</string>
+    <string name="but_apply">apply</string>
+    <string name="but_count">count</string>
+    <string name="text_input_val">Please input values</string>
+</resources>
