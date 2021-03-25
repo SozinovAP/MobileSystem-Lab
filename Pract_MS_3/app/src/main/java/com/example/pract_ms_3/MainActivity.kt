@@ -11,11 +11,22 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
     private var isPressed = false;
-    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        ChangeText();
+        StateButton();
+    }
+
+    fun Counter(view: View) {
+        val textView = findViewById<TextView>(R.id.count_click);
+        textView.text = (Integer.parseInt(textView.text.toString()) + 1).toString();
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    fun ChangeText()
+    {
         val textView = findViewById<TextView>(R.id.textView);
         val but = findViewById<Button>(R.id.button_text);
 
@@ -36,13 +47,28 @@ class MainActivity : AppCompatActivity() {
 
                 }
             }
-            return@setOnTouchListener true
+            return@setOnTouchListener true;
         }
     }
 
-    fun Counter(view: View) {
-        val textView = findViewById<TextView>(R.id.count_click);
-        textView.text = (Integer.parseInt(textView.text.toString()) + 1).toString();
+    @SuppressLint("ClickableViewAccessibility")
+    fun StateButton()
+    {
+        val butState = findViewById<Button>(R.id.button_state);
+
+        butState.setOnTouchListener {_, event ->
+            when(event.action){
+
+                MotionEvent.ACTION_UP -> {
+                    butState.isPressed = true;
+                }
+
+                else ->{
+
+                }
+            }
+            return@setOnTouchListener true;
+        }
     }
 
     fun ToDateTime(view: View)
