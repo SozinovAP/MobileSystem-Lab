@@ -14,10 +14,4 @@
     <string name="text_switch_on">on</string>
     <string name="text_seekBar">Current value: </string>
 
-    <string-array name="number">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
 </resources>

@@ -8,8 +8,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Pract_MS_3">
-        <activity android:name=".RemainedTasks"></activity>
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".RemainedTasks" />
         <activity android:name=".DateTime" />
         <activity android:name=".MainActivity">
             <intent-filter>

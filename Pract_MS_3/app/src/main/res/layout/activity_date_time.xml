@@ -8,9 +8,9 @@
 
     <CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="340dp"
-        android:layout_height="286dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="338dp"
+        android:layout_height="304dp"
+        android:layout_marginTop="10dp"
         android:onClick="SelectDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -19,14 +19,14 @@
 
     <TimePicker
         android:id="@+id/timePicker"
-        android:layout_width="349dp"
-        android:layout_height="347dp"
-        android:layout_marginBottom="36dp"
+        android:layout_width="358dp"
+        android:layout_height="385dp"
+        android:layout_marginTop="10dp"
         android:onClick="SelectTime"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.419"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
     <Button
         android:id="@+id/button_to_list"

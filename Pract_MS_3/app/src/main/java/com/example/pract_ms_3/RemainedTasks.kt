@@ -21,13 +21,14 @@ class RemainedTasks : AppCompatActivity() {
     private fun ActionOnSpinner()
     {
         val spinner = findViewById<Spinner>(R.id.spinner);
+        SetResourceInSpinner(1, spinner);
 
         spinner.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, itemSelected: View,
                                         selectedItemPosition: Int, selectedId: Long) {
-                val choose = resources.getStringArray(R.array.number)
-                Toast.makeText(applicationContext, choose[selectedItemPosition], Toast.LENGTH_SHORT).show();
-                Log.d("choose", choose[selectedItemPosition]);
+                val choose = spinner.getItemAtPosition(selectedItemPosition).toString();
+                Toast.makeText(applicationContext, choose, Toast.LENGTH_SHORT).show();
+                Log.d("choose", choose);
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -48,15 +49,27 @@ class RemainedTasks : AppCompatActivity() {
 
     private fun ActionToSeekBarAndTextView()
     {
-        val seekBar = findViewById<SeekBar>(R.id.seekBar);
+        val seekBar = findViewById<SeekBar>(R.id.seekBar) ?: return;
+        val seekBarText = findViewById<TextView>(R.id.value_seekBar);
+        seekBarText.text = getString(R.string.text_seekBar).plus(seekBar.progress.toString());
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                if (seekBar != null) {
-                    findViewById<TextView>(R.id.value_seekBar).text = getString(R.string.text_seekBar).plus(seekBar.progress.toString())
-                };
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                seekBarText.text = getString(R.string.text_seekBar).plus(seekBar.progress.toString());
+                val spinner = findViewById<Spinner>(R.id.spinner);
+                SetResourceInSpinner(seekBar.progress, spinner);
             }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {    }
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {     }
+            override fun onStartTrackingTouch(seekBar: SeekBar) {    }
+            override fun onStopTrackingTouch(seekBar: SeekBar) {     }
         })
+    }
+
+    private fun SetResourceInSpinner(value: Int, spinner: Spinner)
+    {
+        val data = ArrayList<String>();
+        for (i in 0..value)
+        {
+            data.add(i.toString());
+        }
+        spinner.adapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, data);
     }
 }
