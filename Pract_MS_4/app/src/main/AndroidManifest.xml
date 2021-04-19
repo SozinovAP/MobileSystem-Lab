@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".TaskOnWeekShow"></activity>
+        <activity android:name=".CounterActivity"></activity>
+        <activity android:name=".DownDropMenuActivity" />
+        <activity android:name=".PullDownMenuActivity" />
+        <activity android:name=".SlideShowActivity" />
         <activity android:name=".WebViewActivity" />
         <activity android:name=".ListTasksOnWeek" />
         <activity android:name=".DialogTasksActivity" />

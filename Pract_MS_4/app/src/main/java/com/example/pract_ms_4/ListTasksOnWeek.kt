@@ -2,7 +2,6 @@ package com.example.pract_ms_4
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -50,6 +49,7 @@ class ListTasksOnWeek : AppCompatActivity() {
     fun NextTask(view: View)
     {
         val newAct = Intent(this, WebViewActivity::class.java);
+        newAct.putExtra("tasks", notes);
         startActivity(newAct);
     }
 

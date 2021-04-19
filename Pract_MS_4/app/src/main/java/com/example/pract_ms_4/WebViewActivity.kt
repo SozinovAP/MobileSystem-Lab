@@ -26,7 +26,8 @@ class WebViewActivity : AppCompatActivity() {
 
     fun NextTask(view: View)
     {
-        val newAct = Intent(this, TaskOnWeekShow::class.java);
+        val newAct = Intent(this, SlideShowActivity::class.java);
+        newAct.putExtra("tasks", intent.getSerializableExtra("tasks") as ArrayList<Note>);
         startActivity(newAct);
     }
 

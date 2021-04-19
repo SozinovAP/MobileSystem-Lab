@@ -7,6 +7,7 @@ import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.text.TextUtils.isEmpty
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
@@ -15,9 +16,9 @@ import java.util.Calendar.HOUR
 import java.util.Calendar.MINUTE
 
 class DialogTasksActivity : AppCompatActivity() {
-    private lateinit var date: String;
+    private var date = "";
     private var dateSelected = false;
-    private lateinit var time: String;
+    private var time = "";
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,6 +77,7 @@ class DialogTasksActivity : AppCompatActivity() {
                 else
                     sdfDate.format(calendarView.date);
                 dateSelected = false;
+                SetText();
             }
             .setNegativeButton(
                 getString(R.string.text_cancel)
@@ -98,7 +100,9 @@ class DialogTasksActivity : AppCompatActivity() {
             .setPositiveButton(
                 getString(R.string.text_apply)
             ) { _, _ ->
+                time = timeView.hour.toString() + ":" + timeView.minute.toString();
                 findViewById<TextView>(R.id.timeView).text = timeView.hour.toString() + ":" + timeView.minute.toString();
+                SetText();
             }
             .setNegativeButton(
                 getString(R.string.text_cancel)
@@ -115,5 +119,17 @@ class DialogTasksActivity : AppCompatActivity() {
     fun PrevTask(view: View)
     {
         this.finish();
+    }
+
+    private fun SetText()
+    {
+        var res: String = "";
+
+        if (findViewById<TextView>(R.id.timeView).text != getString(R.string.text_your_time))
+            res = "Time: " + findViewById<TextView>(R.id.timeView).text + "  ";
+        if (findViewById<TextView>(R.id.dateView).text != getString(R.string.text_your_date))
+            res += "Date: " + findViewById<TextView>(R.id.dateView).text;
+
+        findViewById<TextView>(R.id.textDateTime).text = res;
     }
 }
