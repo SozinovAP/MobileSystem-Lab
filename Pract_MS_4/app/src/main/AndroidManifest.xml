@@ -3,6 +3,7 @@
     package="com.example.pract_ms_4">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".CounterActivity"></activity>
+
+        <service
+            android:name=".ForegroundService"
+            android:icon="@drawable/ic_launcher_background"
+            android:exported="false"/>
+
+        <receiver android:name=".ForegroundService$ActionReceiver" />
+
         <activity android:name=".DownDropMenuActivity" />
         <activity android:name=".PullDownMenuActivity" />
         <activity android:name=".SlideShowActivity" />
