@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     fun NextTask(view: View)
     {
-        val newAct = Intent(this, MainActivity::class.java);
+        val newAct = Intent(this, ListViewActivity::class.java);
         startActivity(newAct);
     }
 }
