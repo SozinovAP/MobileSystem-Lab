@@ -24,7 +24,7 @@ class AnimateTextActivity : AppCompatActivity() {
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     textView.animate().y(2000f).rotation(180f).duration = 5000;
-                    val colorFrom = resources.getColor(R.color.white);
+                    val colorFrom = textView.currentTextColor;
                     val colorTo = resources.getColor(R.color.red);
                     val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), colorFrom, colorTo);
                     colorAnimation.duration = 5000;
@@ -33,8 +33,7 @@ class AnimateTextActivity : AppCompatActivity() {
                 }
                 MotionEvent.ACTION_UP -> {
                     textView.animate().y(0f).rotation(0f).duration = 5000;
-                    //textView.setTextColor(Color.WHITE)
-                    val colorFrom = resources.getColor(R.color.red);
+                    val colorFrom = textView.currentTextColor
                     val colorTo = resources.getColor(R.color.white);
                     val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), colorFrom, colorTo)
                     colorAnimation.duration = 5000;
