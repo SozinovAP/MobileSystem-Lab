@@ -1,5 +1,6 @@
 package com.example.pract_ms_7
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -10,7 +11,7 @@ class CounterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_counter)
-        System.loadLibrary("counter-c");
+        System.loadLibrary("library-c");
 
         Counter();
     }
@@ -40,9 +41,18 @@ class CounterActivity : AppCompatActivity() {
 
     fun SetValue(view: View)
     {
-        SetCount(findViewById<EditText>(R.id.input_value_couter).text.toString().toInt());
-        UpdateTextView();
-        findViewById<EditText>(R.id.input_value_couter).text.clear();
+        try {
+            SetCount(findViewById<EditText>(R.id.input_value_couter).text.toString().toInt());
+            UpdateTextView();
+            findViewById<EditText>(R.id.input_value_couter).text.clear();
+        }
+        catch(e: NumberFormatException) {}
+    }
+
+    fun Next(view: View)
+    {
+        val newAct = Intent(this, DictionaryActivity::class.java);
+        startActivity(newAct);
     }
 
     private external fun Counter();

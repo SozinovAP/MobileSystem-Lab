@@ -19,12 +19,11 @@ public:
     Dictionary(std::vector<std::string>& _dictionary);
 
     void Add(std::string& word);
-    void Add(jint index, std::string& word);
+    void Add(int index, std::string& word);
     void Remove();
     void Remove(int index);
-    std::string GetByIndex(jint index);
+    std::string GetByIndex(int index);
     std::string GetDictionary();
-
 };
 
 
